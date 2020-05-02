@@ -52,6 +52,12 @@ _main.log
 # Publications 
 /tesis_publications
 /*.pdf
+/*.html
+*.aux
+*.out
+*.toc
+*/_book
+*/_bookdown_files
 
 # Analisis previo y otros docs
 /analisis/prev
