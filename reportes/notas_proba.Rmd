@@ -1,0 +1,56 @@
+---
+output:
+     pdf_document:
+          number_sections: true
+          includes:
+               before_body: tex/beforebody.tex
+               in_header: tex/header.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Notas del Curso
+
+## Estadísticos de Orden
+
+En estadística, uno se refiere a una **muestra aleatoria** de tamaño $n$ de una población $\texttt{X}$ con función de densidad de probabilidad (fdp) $f$, a una colección $x_1, \ldots, x_n$ de variables aleatorias independientes e identicamente distribuidos con fdp común $f$. Así, 
+
+$\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a. de }\;x \sim f.$
+
+Un **estadístico** es una función de la m.a. que no depende de parámetros desconocidos. Por ejemplo, sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a.}$, $\overline{\mathbf{x}} = \frac{1}{n} \sum_1^n x_i$; $\mathbf{s^2} = \sum_1^n (x_i - \overline{\mathbf{x}})^2$; $\mathbf{x}_m = \texttt{min}\{x_1, \ldots, x_n\}$; $\tilde{\mathbf{x}} = \texttt{mediana}\{x_1, \ldots, x_n\}$; $\mathbf{x}_M = \texttt{max}\{x_1, \ldots, x_n\}$. Por otro lado, $\sum_1^n(x_i - \mu)^2$ no es un estadístico pues depende de $\mu$, parámetro desconocido. 
+
+
+Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $x \sim f$, las $x_1, \ldots, x_n$ son $\texttt{vaiid}$. Se definen los **estadísticos de orden** de la m.a. $\mathbf{x}$ por: $x_{(1)}, \ldots, x_{(n)}$, tales que, para todo $\omega   \; \epsilon  \; \Omega$ $x_{(1)}(\omega) \leq x_{(2)}(\omega) \leq\ldots \leq x_{(n)(\omega)}$. Si ${Y_i} = x_{(i)} \; i = 1, \ldots, n$, entonces, para todo $\omega   \; \epsilon  \; \Omega$
+
+$$
+\begin{array}{ccl}
+{Y_1}(\omega) & = & \texttt{min}\{x_1(\omega), \ldots, x_2(\omega)\}\\
+{Y_2}(\omega) & = & \text{la segunda realización} \; x_i(\omega) \; \text{más pequeña}\\
+\vdots && \\
+{Y_r}(\omega) & = & \text{es tal que} \; Y_i(\omega) \leq \ldots \leq Y_{r-1}(\omega) \leq Y_{r}(\omega) \leq \ldots \leq Y_{n}(\omega)  \\
+\vdots && \\
+{Y_1}(\omega) & = & \texttt{max}\{x_1(\omega), \ldots, x_2(\omega)\}\\
+\end{array}
+$$
+
+$$
+\begin{array}{ccl}
+{x_{(1)}} & = & \text{primer estadístico de orden}\\
+\vdots & & \\
+{x_{(r)}} & = & \text{r-ésimo estadístico de orden}.
+\end{array}
+$$
+
+Se define el rando de una m.a. $\underline{\mathbf{x}}$ como 
+
+$$
+R = x_{(n)} - x_{(1)} = \texttt{max}\{x_i\}-\texttt{min}\{x_i\}
+$$
+
+Consideraremos v.a. continuas, de tal manera que con probabilidad 1 no se tienen empates, luego, 
+
+$$
+x_{(1)} < x_{(2)} < \ldots x_{(n)}.
+$$
