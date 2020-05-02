@@ -15,14 +15,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Estadísticos de Orden
 
-En estadística, uno se refiere a una **muestra aleatoria** de tamaño $n$ de una población $\texttt{X}$ con función de densidad de probabilidad (fdp) $f$, a una colección $x_1, \ldots, x_n$ de variables aleatorias independientes e identicamente distribuidos con fdp común $f$. Así, 
+En estadística, uno se refiere a una **\textcolor{persianblue}{muestra aleatoria}** de tamaño $n$ de una población $\texttt{X}$ con función de densidad de probabilidad (fdp) $f$, a una colección $x_1, \ldots, x_n$ de variables aleatorias independientes e identicamente distribuidos con fdp común $f$. Así, $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a. de }\;x \sim f.$
 
-$\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a. de }\;x \sim f.$
+\vspace{.5cm}
 
-Un **estadístico** es una función de la m.a. que no depende de parámetros desconocidos. Por ejemplo, sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a.}$, $\overline{\mathbf{x}} = \frac{1}{n} \sum_1^n x_i$; $\mathbf{s^2} = \sum_1^n (x_i - \overline{\mathbf{x}})^2$; $\mathbf{x}_m = \texttt{min}\{x_1, \ldots, x_n\}$; $\tilde{\mathbf{x}} = \texttt{mediana}\{x_1, \ldots, x_n\}$; $\mathbf{x}_M = \texttt{max}\{x_1, \ldots, x_n\}$. Por otro lado, $\sum_1^n(x_i - \mu)^2$ no es un estadístico pues depende de $\mu$, parámetro desconocido. 
+Un **\textcolor{persianblue}{estadístico}** es una función de la m.a. que no depende de parámetros desconocidos. Por ejemplo, sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a.}$, $\overline{\mathbf{x}} = \frac{1}{n} \sum_1^n x_i$; $\mathbf{s^2} = \sum_1^n (x_i - \overline{\mathbf{x}})^2$; $\mathbf{x}_m = \texttt{min}\{x_1, \ldots, x_n\}$; $\tilde{\mathbf{x}} = \texttt{mediana}\{x_1, \ldots, x_n\}$; $\mathbf{x}_M = \texttt{max}\{x_1, \ldots, x_n\}$. Por otro lado, $\sum_1^n(x_i - \mu)^2$ no es un estadístico pues depende de $\mu$, parámetro desconocido. 
 
+\vspace{.5cm}
 
-Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $x \sim f$, las $x_1, \ldots, x_n$ son $\texttt{vaiid}$. Se definen los **estadísticos de orden** de la m.a. $\mathbf{x}$ por: $x_{(1)}, \ldots, x_{(n)}$, tales que, para todo $\omega   \; \epsilon  \; \Omega$ $x_{(1)}(\omega) \leq x_{(2)}(\omega) \leq\ldots \leq x_{(n)(\omega)}$. Si ${Y_i} = x_{(i)} \; i = 1, \ldots, n$, entonces, para todo $\omega   \; \epsilon  \; \Omega$
+Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $x \sim f$, las $x_1, \ldots, x_n$ son $\texttt{vaiid}$. Se definen los **\textcolor{persianblue}{estadísticos de orden}** de la m.a. $\mathbf{x}$ por: $x_{(1)}, \ldots, x_{(n)}$, tales que, para todo $\omega   \; \epsilon  \; \Omega$ $x_{(1)}(\omega) \leq x_{(2)}(\omega) \leq\ldots \leq x_{(n)(\omega)}$. Si ${Y_i} = x_{(i)} \; i = 1, \ldots, n$, entonces, para todo $\omega   \; \epsilon  \; \Omega$
 
 $$
 \begin{array}{ccl}
