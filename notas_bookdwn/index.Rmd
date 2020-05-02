@@ -1,0 +1,16 @@
+--- 
+title: "Notas Cálculo de Probabilidades II"
+author: "EBZ - SMC"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Compilación de notas del curso de Cálculo de Probabilidades II de enero 2020."
+always_allow_html: true
+---
+
+# Notas {-}
+
+Este documento compila las notas del curso de Cálculo de Probabilidades II impartido por el Dr. Ernesto Barrios en el semestre de enero de 2020.  

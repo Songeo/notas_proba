@@ -1,11 +1,3 @@
----
-output:
-     pdf_document:
-          number_sections: true
-          includes:
-               before_body: tex/beforebody.tex
-               in_header: tex/header.tex
----
 
 ```{r setup, include=FALSE}
 library(knitr)
@@ -15,19 +7,21 @@ library(kableExtra)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Notas del Curso
 
-## Estadísticos de Orden
 
-En estadística, uno se refiere a una **\textcolor{persianblue}{muestra aleatoria}** de tamaño $n$ de una población $\texttt{X}$ con función de densidad de probabilidad (fdp) $f$, a una colección $x_1, \ldots, x_n$ de variables aleatorias independientes e identicamente distribuidos con fdp común $f$. Así, $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a. de }\;x \sim f.$
+# Estadísticos de Orden {#estord}
 
-\vspace{.5cm}
+## Definiciones
 
-Un **\textcolor{persianblue}{estadístico}** es una función de la m.a. que no depende de parámetros desconocidos. Por ejemplo, sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a.}$, $\overline{\mathbf{x}} = \frac{1}{n} \sum_1^n x_i$; $\mathbf{s^2} = \sum_1^n (x_i - \overline{\mathbf{x}})^2$; $\mathbf{x}_m = \texttt{min}\{x_1, \ldots, x_n\}$; $\tilde{\mathbf{x}} = \texttt{mediana}\{x_1, \ldots, x_n\}$; $\mathbf{x}_M = \texttt{max}\{x_1, \ldots, x_n\}$. Por otro lado, $\sum_1^n(x_i - \mu)^2$ no es un estadístico pues depende de $\mu$, parámetro desconocido. 
+En estadística, uno se refiere a una **muestra aleatoria** de tamaño $n$ de una población $\texttt{X}$ con función de densidad de probabilidad (fdp) $f$, a una colección $x_1, \ldots, x_n$ de variables aleatorias independientes e identicamente distribuidos con fdp común $f$. Así, $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a. de }\;x \sim f.$
 
 \vspace{.5cm}
 
-Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $x \sim f$, las $x_1, \ldots, x_n$ son $\texttt{vaiid}$. Se definen los **\textcolor{persianblue}{estadísticos de orden}** de la m.a. $\mathbf{x}$ por: $x_{(1)}, \ldots, x_{(n)}$, tales que, para todo $\omega   \; \epsilon  \; \Omega$ $x_{(1)}(\omega) \leq x_{(2)}(\omega) \leq\ldots \leq x_{(n)(\omega)}$. Si ${Y_i} = x_{(i)} \; i = 1, \ldots, n$, entonces, para todo $\omega   \; \epsilon  \; \Omega$
+Un **estadístico** es una función de la m.a. que no depende de parámetros desconocidos. Por ejemplo, sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n) \; \text{m.a.}$, $\overline{\mathbf{x}} = \frac{1}{n} \sum_1^n x_i$; $\mathbf{s^2} = \sum_1^n (x_i - \overline{\mathbf{x}})^2$; $\mathbf{x}_m = \texttt{min}\{x_1, \ldots, x_n\}$; $\tilde{\mathbf{x}} = \texttt{mediana}\{x_1, \ldots, x_n\}$; $\mathbf{x}_M = \texttt{max}\{x_1, \ldots, x_n\}$. Por otro lado, $\sum_1^n(x_i - \mu)^2$ no es un estadístico pues depende de $\mu$, parámetro desconocido. 
+
+\vspace{.5cm}
+
+Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $x \sim f$, las $x_1, \ldots, x_n$ son $\texttt{vaiid}$. Se definen los **estadísticos de orden** de la m.a. $\mathbf{x}$ por: $x_{(1)}, \ldots, x_{(n)}$, tales que, para todo $\omega   \; \epsilon  \; \Omega$ $x_{(1)}(\omega) \leq x_{(2)}(\omega) \leq\ldots \leq x_{(n)(\omega)}$. Si ${Y_i} = x_{(i)} \; i = 1, \ldots, n$, entonces, para todo $\omega   \; \epsilon  \; \Omega$
 
 $$
 \begin{array}{ccl}
@@ -63,26 +57,34 @@ $$
 
 \vspace{1cm}
 
-**\textcolor{persianblue}{Ej:}** Considere un mecanismo con $n$ componentes idénticos e independientes con tiempos de vida $T_1, \ldots, T_n$. 
+## Ejemplos 
+
+
+### Mecanismo de componentes
+
+**Ej:** Considere un mecanismo con $n$ componentes idénticos e independientes con tiempos de vida $T_1, \ldots, T_n$. 
 
 a) Si los componentes están conectadas en **serie**,
 
-```{r ejserie, out.width='300pt', fig.pos='H', fig.align='center', echo = F}
+```{r ejserie, out.width='200pt', fig.pos='H', fig.align='center', echo = F}
 knitr::include_graphics("imgs/estadord_ej_compserie.png")
 ```
 Entonces, $T_{(1)} = \texttt{min}\{T_1, \ldots, T_n\}$ es el tiempo de operación del mecanismo.
 
 b) Si los componentes están conectadas en **paralelo**,
 
-```{r ejparalelo, out.height='300pt', fig.pos='H', fig.align='center', echo = F}
+```{r ejparalelo, out.width='100pt', fig.pos='H', fig.align='center', echo = F}
 knitr::include_graphics("imgs/estadord_ej_compparalelo.png")
 ```
 Entonces, $T_{(n)} = \texttt{max}\{T_1, \ldots, T_n\}$ sería el tiempo de operación del mecanismo.
 
 
-**\textcolor{persianblue}{Ej:}** Suponga una línea de producción de partes (tornillos) supuestamente idénticos. Sean $x_1, \ldots, x_n$ las longitudes de los tornillos. Si $x_{(1)}$ y $x_{(n)}$ están dentro de tolerancia, **todos** los tornillos. 
+### Línea de producción de partes
+
+**Ej:**  Suponga una línea de producción de partes (tornillos) supuestamente idénticos. Sean $x_1, \ldots, x_n$ las longitudes de los tornillos. Si $x_{(1)}$ y $x_{(n)}$ están dentro de tolerancia, **todos** los tornillos. 
 
 Note que $R = \texttt{max}\{x_i\} - \texttt{min}\{x_i\} = x_{(n)}- x_{(1)}$ es una medida de la variación (variabilidad de la producción).
+
 
 ### Máximos y mínimos de 12 muestras de distribución $\texttt{Unif} (0,1)$
 
@@ -134,8 +136,7 @@ tab %>%
   }) %>% 
   rownames_to_column(var = "Obs") %>% 
   mutate(Obs = rownames(tab)) %>% 
-  knitr::kable(digits = 3, align = 'c', row.names = F) %>% 
-  kable_styling(bootstrap_options = c("striped", "hover"))
+  knitr::kable(digits = 3, align = 'c', row.names = F, format = 'latex') 
 ```
 
 ### Muestras de distribución $\texttt{Gamma} (\alpha = 1, \beta = 1)$
@@ -252,6 +253,7 @@ title("Distribución normal", sub=lab, line=1)
 ```
 
 
+## Probabilidades
 
 Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_2)$ m.a. de $X$ con fpa $F$ y fdp $f$. 
 
@@ -261,7 +263,7 @@ $$
 {n\choose r} F(x)^r \big[1 - F(x)\big]^{n-r}
 $$
 gráficamente, 
-```{r probanr, out.width='150pt', fig.pos='H', fig.align='center', echo = F}
+```{r probanr, out.width='250pt', fig.pos='H', fig.align='center', echo = F}
 knitr::include_graphics("imgs/estord_probanr.png")
 ```
 

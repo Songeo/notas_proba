@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Notas CP2</a></li>
+      after: |
+        <li><a href="https://github.com/Songeo/notas_proba" target="blank">Hecho con bookdown</a></li>
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+    in_header: tex/preamble.tex
+    before_body: tex/beforebody.tex
+    after_body: tex/after_body.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+bookdown::epub_book: default

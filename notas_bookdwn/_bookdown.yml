@@ -1,0 +1,23 @@
+book_filename: "notas_bookdwn"
+delete_merged_file: true
+language:
+  language: 
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota: '
+    solution: 'Solución. '
+  ui:
+    edit: Edit
+    chapter_name: ' '
+    appendix_name: ' '  
+output_dir: "_book"
