@@ -8,10 +8,10 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <!-- Deficiniciones en latex del capitulo -->
-\newcommand{\derx}{\mathfrak{d}x}
-\newcommand{\der}{\mathfrak{d}}
-\newcommand{\igualind}{\stackrel{\mbox{ind}}{=}}
-\newcommand{\xvect}{\underline{\mathbf{\small{X}}}
+\newcommand{\derx}{ \mathfrak{d}x }
+\newcommand{\der}{ \mathfrak{d} }
+\newcommand{\igualind}{ \stackrel{\mbox{ind}}{=} }
+\newcommand{\xvect}{ \underline{\mathbf{\small{X}}} }
 
 
 # Estadísticos de Orden {#estord}
@@ -428,6 +428,6 @@ $\underline{\mathbf{X}} \rightarrow  \underline{\mathbf{Y}}$ es una mera permuta
 
 Por ejemplo, si $\xvect = (X_1, X_2, X_3)$
 
-Para la permutación particular $\underline{\mathbf{X}} \rightarrow  \underline{\mathbf{Y}} = (X_2 < X_1 > X_3)$ , se tiene la transformación
+Para la permutación particular $\underline{\mathbf{X}} \rightarrow  \underline{\mathbf{Y}} = (X_2 < X_1 > X_3)$, se tiene la transformación
 
 
