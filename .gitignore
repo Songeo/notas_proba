@@ -52,7 +52,6 @@ _main.log
 # Publications 
 /tesis_publications
 /*.pdf
-/*.html
 *.aux
 *.out
 *.toc
