@@ -20,4 +20,4 @@ language:
     edit: Edit
     chapter_name: ' '
     appendix_name: ' '  
-output_dir: "_book"
+output_dir: "docs"
