@@ -1,6 +1,6 @@
 --- 
 title: "Notas Cálculo de Probabilidades II"
-author: "EBZ - SMC"
+author: "EBZ"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
