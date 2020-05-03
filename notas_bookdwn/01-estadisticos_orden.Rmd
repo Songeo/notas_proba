@@ -7,9 +7,16 @@ library(kableExtra)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<!-- Deficiniciones en latex del capitulo -->
+\newcommand{\derx}{\mathfrak{d}x}
+\newcommand{\der}{\mathfrak{d}}
+\newcommand{\igualind}{\stackrel{\mbox{ind}}{=}}
+\newcommand{\xvect}{\underline{\mathbf{\small{X}}}
 
 
 # Estadísticos de Orden {#estord}
+
+
 
 ## Definiciones
 
@@ -108,7 +115,7 @@ for(i in seq(N)) {
 }
 lab <- paste("Máximos y mínimos de",N,"muestras de tamaño",n,
     "\n de una poblacion (distribucion) uniforme (0,1)")
-cat(paste(lab,"\n"))
+# cat(paste(lab,"\n"))
 tab <- t(round(x <- cbind(x,xmin=xmin,xmax=xmax,rango=xmax-xmin),3))
 
 opar <- par(no.readonly=TRUE)
@@ -253,7 +260,7 @@ title("Distribución normal", sub=lab, line=1)
 ```
 
 
-## Probabilidades
+## Función de densidad
 
 Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_2)$ m.a. de $X$ con fpa $F$ y fdp $f$. 
 
@@ -264,7 +271,7 @@ $$
 $$
 gráficamente, 
 ```{r probanr, out.width='250pt', fig.pos='H', fig.align='center', echo = F}
-knitr::include_graphics("imgs/estord_probanr.png")
+knitr::include_graphics("imgs/estadord_probanr.png")
 ```
 
 
@@ -298,4 +305,129 @@ F_n(x) & = &  P\big( x_{(n)} \leq x \big) & = & P\big( \texttt{max}\{x_i\} \leq 
  &  &   & \stackrel{\mbox{ind}}{=} & 1- \Big[  1 - F(x)\Big]^n 
 \end{array}
 $$
+
+Las correspondientes fdp:
+
+$$
+\begin{array}{ccccl}
+f_n(x) & = &  \frac{\mathfrak{d}}{\derx}F_n(x) & = & n\big[ F(x) \big]^{n-1}f(x)\\
+f_1(x) & = &  \frac{\mathfrak{d}}{\derx}F_1(x) & = & n\big[ 1- F(x)\big]^{n-1}f(x)  \\
+\end{array}
+$$
+donde $\quad x \epsilon \mathbb{R}$.
+
+
+Y para $1 \leq r \leq n$, se tiene 
+ 
+a) HP \& S (1971)
+
+$$
+f_r(x)  =   
+\frac{\mathfrak{d}}{\derx}F_r(x)  = 
+\sum_{k =r}^n {n \choose k} 
+\Big\{   
+k \; F(x)^{k-1} \big[ 1 - F(x)\big]^{n-k}f(x) - (n-k)f(x)F(x)^k \big[ 1 - F(x)\big]^{n-k-1}
+\Big\}
+$$
+con un poco de manipulación algebraíca, acomodando índices
+$$
+f_r(x)  =   
+n {n-1 \choose r-1} 
+f(x) F(x)^{r-1} \big[ 1 - F(x)\big]^{n-r} \quad ,\; x \; \epsilon \; \mathbb{R}
+$$
+
+
+b) B \& H (2014)
+
+```{r ejembh, out.width='300pt', fig.pos='H', fig.align='center', echo = F}
+knitr::include_graphics("imgs/estadord_bh.png")
+```
+
+
+Considere $\derx$ la diferencial alrededor de $x$ y $f_r$ la fdp de $X_{(r)}$. Luego $f_r(d)\derx$ es la probabilidad de que el $r$-ésimo estadístico de orden $X_{(r)}$ caiga en el intervalo de longitud $\derx$ alrededor del punto $x$. Entonces,
+
+
+$$
+f_r(x)\derx  = 
+\underbrace{ {n-1 \choose r-1} F(x)^{r-1} }_{ \Large{ \texttt{(1)}} } \;\cdot\;
+\underbrace{ nf(x)\derx }_{ \Large{\texttt{(2)}} } \;\cdot\;
+\underbrace{ \big[1 - F(x)\big]^{n-r} }_{ \Large{\texttt{(3)}} } 
+$$
+
+
+- $\large{ \texttt{(1)} }$ Se elijen los $(r-1)$ $X_i$'s de (n-1) posibles que caerñan a la izquierda de $x$. $F(x)$ es la probabilidad de caer ea la izquierda de $x$.
+
+- $\large{ \texttt{(2)}}$ Se elije $X_i$ de los $n$ posibles y $f(x)\derx$ es la probabilidad de que caiga en el intervalo $\derx$ al rededor de $x$.
+
+- $\large{ \texttt{(3)}}$ Es la probabilidad de que los $(n-r)$ $X_i$'s restantes que caigan a la derecha de $x$.
+
+
+\vspace{1cm}
+y cancelando $\derx$ de ambos lados se tiene el resultado, 
+
+$$
+f_r(x) \derx  = 
+n {n-1 \choose r-1} f(x) F(x)^{r-1}
+\big[1 - F(x)\big]^{n-r} 
+\;\quad\; x \; \epsilon \; \mathbb{R}.
+$$
+
+Considere ahora el rango de la muestra $R = X_{(n)} - X_{(1)}$. Para determinad la fdp de $R$ se requiere la conjunta de $X_{(1)}$ y $X_{(n)}$. Para esto, sean $x \leq y$
+
+$$
+\begin{array}{ccl}
+P(X_{(1)} > x, X_{(n)} \leq y) & = & P(x < X_{1} \leq y, \ldots,  x < X_{n} \leq y) \\
+ & \igualind & \big[ P(x < X \leq y ) \big]^n  \\
+ & = & \big[ F(y) - F(x) \big]^n  \\
+\end{array}
+$$
+\vspace{.5cm}
+
+```{r fdprango, out.width='370pt', fig.pos='H', echo=FALSE, fig.align='center'}
+knitr::include_graphics("imgs/estadord_fdprango.png")
+```
+
+Luego, 
+
+$$
+\begin{array}{ccl}
+F_{1,n}(x,y) & = & P(X_{(1)} \leq x, X_{n} \leq y) \\
+  & = & P \big(X_{n} \leq y\big) -  P \big(X_{(1)} \geq x,  X_{n} \leq y \big) \\
+  & = & \big[F(x)\big]^n -  \big[F(y)-F(x)\big]^n \\
+\end{array}
+$$
+
+Donde,
+
+$$
+f_{1,n}(x,y) =
+\frac{\mathfrak{d}^2 F_{1,n}(x,y)}{\mathfrak{d}x\mathfrak{d}y} =
+n(n-1)f(x)f(y)\big[F(y) - F(x)\big]^{n-2}
+$$
+
+Entonces, para $r>0$
+
+$$
+f_{\small{R} }(r) = 
+\int_{\mathbb{R}} f_{1,n} (u, u+r) \der u = 
+n(n-1)\int_{-\infty}^{\infty} f(u) f(u+r)
+\big[ F(r+u) - F(u)\big]^{n-2}\der u
+$$
+
+## Función de densidad conjunta de los estadísticos de orden
+
+
+Sea $\underline{\mathbf{x}} = (x_1, \ldots, x_n)$ m.a. de $X \sim f$. Entonces, la fdp conjunta de $\underline{\mathbf{x}}$ es 
+
+$$
+f_{\underline{\mathbf{\small{X}}} } (x) = \prod_{1 = 1}^n f(x_i) \quad\; \text{por independencia}
+$$
+
+Sea $Y_i = X_{(i)}$ el i-ésimo estadístico de orden, donde $i = 1, \ldots, n$. Entonces
+$\underline{\mathbf{X}} \rightarrow  \underline{\mathbf{Y}}$ es una mera permutación de las entradas de $\underline{\mathbf{X}}$.
+
+Por ejemplo, si $\xvect = (X_1, X_2, X_3)$
+
+Para la permutación particular $\underline{\mathbf{X}} \rightarrow  \underline{\mathbf{Y}} = (X_2 < X_1 > X_3)$ , se tiene la transformación
+
 
